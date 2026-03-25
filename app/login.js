@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const API = 'http://localhost:8080/api';
+  const API = (typeof API_BASE !== 'undefined') ? API_BASE : 'http://localhost:8080/api';
 
   // 이미 로그인 상태면 대시보드로 이동
   if (localStorage.getItem('token')) {

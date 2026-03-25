@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const API = 'http://localhost:8080/api';
+  const API = (typeof API_BASE !== 'undefined') ? API_BASE : 'http://localhost:8080/api';
 
   /* ── 인증 확인 ── */
   const token = localStorage.getItem('token');
