@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>대시보드 — DailyClip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- 네비게이션 -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="../landing/index.html" class="nav-logo">DailyClip</a>
+      <div class="nav-right">
+        <span class="nav-email" id="nav-email"></span>
+        <button class="btn-logout" id="btn-logout">로그아웃</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container">
+
+      <!-- URL 입력 영역 -->
+      <section class="clip-input-section">
+        <h1 class="section-title">뉴스 스크랩</h1>
+        <div class="clip-input-row">
+          <input
+            type="url"
+            id="url-input"
+            class="url-input"
+            placeholder="뉴스 기사 URL을 붙여넣어 보세요"
+            aria-label="뉴스 URL 입력"
+          />
+          <button class="btn-primary" id="btn-clip" aria-label="스크랩하기">
+            <span class="btn-text">스크랩하기</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="clip-error" id="clip-error" aria-live="polite"></p>
+      </section>
+
+      <!-- 필터 영역 -->
+      <section class="filter-section">
+        <div class="filter-row">
+          <label for="date-filter" class="filter-label">날짜 필터</label>
+          <input type="date" id="date-filter" class="date-input" aria-label="날짜로 클립 필터링" />
+          <button class="btn-outline btn-sm" id="btn-filter-clear">초기화</button>
+        </div>
+        <p class="clip-count" id="clip-count"></p>
+      </section>
+
+      <!-- 클립 목록 -->
+      <section class="clips-section" aria-label="스크랩 목록">
+        <!-- 로딩 -->
+        <div class="state-loading" id="state-loading" aria-label="로딩 중">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- 빈 상태 -->
+        <div class="state-empty" id="state-empty" hidden>
+          <p class="state-empty-icon">📰</p>
+          <p class="state-empty-text">아직 스크랩한 뉴스가 없습니다.</p>
+          <p class="state-empty-sub">위 입력창에 뉴스 URL을 붙여넣어 첫 번째 클립을 저장해 보세요.</p>
+        </div>
+
+        <!-- 클립 리스트 -->
+        <div class="clips-list" id="clips-list" hidden></div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

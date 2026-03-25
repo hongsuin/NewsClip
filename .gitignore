@@ -1,0 +1,17 @@
+# 의존성
+server/node_modules/
+
+# 환경변수 (절대 올리면 안 됨)
+server/.env
+
+# 데이터베이스 파일
+server/*.db
+server/*.db-shm
+server/*.db-wal
+
+# Claude Code 설정
+.claude/
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
